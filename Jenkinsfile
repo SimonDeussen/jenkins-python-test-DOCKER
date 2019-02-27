@@ -1,8 +1,8 @@
 pipeline {
-    agent any
+    agent { label "docker-miniconda"}
 
     triggers {
-        pollSCM('*/2 * * * 1-5')
+        pollSCM("*/2 * * * 1-5")
     }
 
     options {
@@ -12,9 +12,6 @@ pipeline {
         timestamps()
     }
 
-    environment {
-      PATH="/Users/Shared/Jenkins/miniconda3/bin:$PATH"
-    }
 
     stages {
 
