@@ -30,7 +30,7 @@ pipeline {
                 sh  'whoami'
                 echo "Building virtualenv"
                 sh  ''' conda create --yes -n ${BUILD_TAG} python
-                        source activate ${BUILD_TAG}
+                        conda activate ${BUILD_TAG}
                         pip install -r requirements.txt
                     '''
             }
@@ -38,7 +38,7 @@ pipeline {
 
         stage('Unit tests') {
             steps {
-                sh  ''' source activate ${BUILD_TAG}
+                sh  ''' conda activate ${BUILD_TAG}
                         python -m pytest --verbose --junit-xml reports/unit_tests.xml
                     '''
             }
