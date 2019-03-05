@@ -23,6 +23,8 @@ pipeline {
 
         stage('Build environment') {
             steps {
+                echp "Testing user"
+                sh  'whoami'
                 echo "Building virtualenv"
                 sh  ''' conda create --yes -n ${BUILD_TAG} python
                         source activate ${BUILD_TAG}
