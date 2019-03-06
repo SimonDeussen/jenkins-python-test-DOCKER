@@ -29,6 +29,7 @@ pipeline {
                 echo    'Testing user'
                 sh      'whoami'
                 echo    'Testing Shell'
+                sh      'echo $SHELL'
                 sh      'ps -p $$ -oargs='
                 sh      'ps  -ef | grep $$ | grep -v grep'
                 echo    'Testing current path'
