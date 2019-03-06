@@ -28,10 +28,6 @@ pipeline {
             steps {
                 echo "Testing user"
                 sh  'whoami'
-                echo "Activating CONDA"
-                sh '''  echo ". /opt/conda/etc/profile.d/conda.sh" >> ~/.bashrc
-                        source ~/.bashrc
-                '''
                 echo "Building virtualenv"
                 sh  ''' conda create --yes -n ${BUILD_TAG} python
                         conda activate ${BUILD_TAG}
