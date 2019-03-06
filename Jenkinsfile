@@ -35,14 +35,12 @@ pipeline {
                 echo    'Testing current path'
                 sh      'pwd'
                 echo    'shell changing example'
-                sh      '''
-                        #!/bin/bash
+                sh      '''#!/bin/bash
                         echo $SHELL
                         ps  -ef | grep $$ | grep -v grep
                         '''
                 echo    'Building virtualenv'
-                sh      ''' 
-                            #!/bin/bash
+                sh      '''#!/bin/bash
                             conda create --yes -n ${BUILD_TAG} python
                             source activate ${BUILD_TAG}
                             pip install -r requirements.txt
