@@ -36,7 +36,7 @@ pipeline {
                 echo    'shell changing example'
                 sh      '''
                         #!/bin/bash
-                        echo \$SHELL"
+                        echo $SHELL"
                         ps  -ef | grep $$ | grep -v grep
                         '''
                 echo    'Building virtualenv'
