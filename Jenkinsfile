@@ -26,13 +26,17 @@ pipeline {
 
         stage('Build environment') {
             steps {
-                echo "Testing user"
-                sh  'whoami'
-                echo "Building virtualenv"
-                sh  ''' conda create --yes -n ${BUILD_TAG} python
-                        conda activate ${BUILD_TAG}
-                        pip install -r requirements.txt
-                    '''
+                echo    'Testing user'
+                sh      'whoami'
+                echo    'Testing Shell'
+                sh      'echo $SHELL'
+                sh      'echo $0'
+                sh      'ps  -ef | grep $$ | grep -v grep'
+                echo    'Building virtualenv'
+                sh      ''' conda create --yes -n ${BUILD_TAG} python
+                            conda activate ${BUILD_TAG}
+                            pip install -r requirements.txt
+                        '''
             }
         }
 
