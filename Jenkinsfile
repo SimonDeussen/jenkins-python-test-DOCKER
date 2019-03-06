@@ -33,6 +33,12 @@ pipeline {
                 sh      'ps  -ef | grep $$ | grep -v grep'
                 echo    'Testing current path'
                 sh      'pwd'
+                echo    'shell changing example'
+                sh      '''
+                        #!/bin/bash
+                        echo \$SHELL"
+                        ps  -ef | grep $$ | grep -v grep
+                        '''
                 echo    'Building virtualenv'
                 sh      ''' conda create --yes -n ${BUILD_TAG} python
                             source activate ${BUILD_TAG}
