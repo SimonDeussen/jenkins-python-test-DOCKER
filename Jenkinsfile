@@ -43,7 +43,7 @@ pipeline {
 
         stage('Unit tests') {
             steps {
-                sh  ''' conda activate ${BUILD_TAG}
+                sh  ''' source activate ${BUILD_TAG}
                         python -m pytest --verbose --junit-xml reports/unit_tests.xml
                     '''
             }
