@@ -12,9 +12,9 @@ pipeline {
         timestamps()
     }
 
-    environment {
-      PATH="/opt/conda/bin:$PATH"
-    }
+    // environment {
+    //   PATH="/opt/conda/bin:$PATH"
+    // }
 
     stages {
 
