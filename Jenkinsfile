@@ -26,19 +26,19 @@ pipeline {
 
         stage('Build environment') {
             steps {
-                echo    'Testing user'
-                sh      'whoami'
-                echo    'Testing Shell'
-                sh      'echo $SHELL'
-                sh      'ps -p $$ -oargs='
-                sh      'ps  -ef | grep $$ | grep -v grep'
-                echo    'Testing current path'
-                sh      'pwd'
-                echo    'shell changing example'
-                sh      '''#!/bin/bash
-                        echo $SHELL
-                        ps  -ef | grep $$ | grep -v grep
-                        '''
+                // echo    'Testing user'
+                // sh      'whoami'
+                // echo    'Testing Shell'
+                // sh      'echo $SHELL'
+                // sh      'ps -p $$ -oargs='
+                // sh      'ps  -ef | grep $$ | grep -v grep'
+                // echo    'Testing current path'
+                // sh      'pwd'
+                // echo    'shell changing example'
+                // sh      '''#!/bin/bash
+                //         echo $SHELL
+                //         ps  -ef | grep $$ | grep -v grep
+                //         '''
                 echo    'Building virtualenv'
                 sh      '''#!/bin/bash
                             conda create --yes -n ${BUILD_TAG} python
