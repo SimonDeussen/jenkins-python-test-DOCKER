@@ -1,5 +1,5 @@
 pipeline {
-    agent { label "docker-miniconda"}
+    agent { label "docker-miniconda-1"}
 
     triggers {
         pollSCM("*/2 * * * 1-5")
