@@ -1,5 +1,5 @@
 pipeline {
-    agent { label "docker-miniconda-1"}
+    agent { label "docker-miniconda-1 || docker-miniconda-2"}
 
     triggers {
         pollSCM("*/2 * * * 1-5")
@@ -26,19 +26,6 @@ pipeline {
 
         stage('Build environment') {
             steps {
-                // echo    'Testing user'
-                // sh      'whoami'
-                // echo    'Testing Shell'
-                // sh      'echo $SHELL'
-                // sh      'ps -p $$ -oargs='
-                // sh      'ps  -ef | grep $$ | grep -v grep'
-                // echo    'Testing current path'
-                // sh      'pwd'
-                // echo    'shell changing example'
-                // sh      '''#!/bin/bash
-                //         echo $SHELL
-                //         ps  -ef | grep $$ | grep -v grep
-                //         '''
                 echo    'Building virtualenv'
                 sh      '''#!/bin/bash
                             conda create --yes -n ${BUILD_TAG} python
